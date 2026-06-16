@@ -14,8 +14,10 @@ export const getMessagesController = async (req, res) => {
   res.json({ msg: "Success", messages });
 };
 
-export const deleteMessage = async (req, res) => {
+export const deleteMessageController = async (req, res) => {
   const { id } = req.params;
 
   await Message.findByIdAndDelete(id);
+
+  res.json({ msg: "Succes, mesage deleted" });
 };
