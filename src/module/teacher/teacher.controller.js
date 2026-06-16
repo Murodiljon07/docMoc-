@@ -2,6 +2,8 @@ import {
   getAllTeachersService,
   getTeachersIdService,
   createTeacherService,
+  deleteTeacherService,
+  updateTeacherService,
 } from "./teacher.service.js";
 
 export const getAllTeachersController = async (req, res) => {
@@ -24,4 +26,21 @@ export const createTeacherController = async (req, res) => {
   const newTeacher = await createTeacherService(body);
 
   res.json({ msg: "Teacher added", newTeacher });
+};
+
+export const deleteTeacherController = async (req, res) => {
+  const { id } = req.params;
+
+  const data = await deleteTeacherService(id);
+
+  res.json({ msg: "Teacher profil deleted" });
+};
+
+export const updateTeacherController = async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+
+  const updatedTacher = await updateTeacherService(id, body);
+
+  res.json({ msg: "Success, profil updated", updatedTacher });
 };

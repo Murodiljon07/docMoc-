@@ -11,3 +11,11 @@ export const getTeachersIdService = async (id) => {
 export const createTeacherService = async (body) => {
   return await Teacher.create(body);
 };
+
+export const deleteTeacherService = async (id) => {
+  return await Teacher.findByIdAndDelete(id);
+};
+
+export const updateTeacherService = async (id, body) => {
+  return await Teacher.findByIdAndUpdate(id, body);
+};
