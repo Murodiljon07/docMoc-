@@ -2,6 +2,7 @@ import {
   getAllCourseService,
   newCourceService,
   getCourceIdService,
+  updateCourceService,
 } from "./course.service.js";
 
 export const getAllCourceController = async (req, res) => {
@@ -23,4 +24,22 @@ export const createCourceController = async (req, res) => {
   const newCource = await newCourceService(body);
 
   res.json({ msg: "Course created", course: newCource });
+};
+
+export const updateCourceController = async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+
+  const course = await updateCourceService(id, body);
+
+  if (!course) {
+    return res.status(404).json({
+      msg: "Course not found",
+    });
+  }
+
+  res.json({
+    msg: "Course updated",
+    data: course,
+  });
 };
