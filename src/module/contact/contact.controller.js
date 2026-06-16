@@ -1,4 +1,4 @@
-import Message from "../../models/message.nodel";
+import Message from "../../models/message.nodel.js";
 
 export const sendMessageController = async (req, res) => {
   const body = req.body;
