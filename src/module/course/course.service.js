@@ -20,6 +20,5 @@ export const getCourceIdService = async (id) => {
 
 export const updateCourceService = async (id, body) => {
   const updateCource = await Course.findByIdAndUpdate(id, body);
-
   return updateCource;
 };
