@@ -1,10 +1,15 @@
 import e from "express";
 
-const route = e.Router();
+const router = e.Router();
 
-route.get("/");
-route.get("/:id");
-route.post("/");
-route.put("/:id");
+import {
+  getAllCourceController,
+  createCourceController,
+} from "./course.controller.js";
 
-export default route;
+router.get("/", getAllCourceController);
+// router.get("/:id");
+router.post("/", createCourceController);
+// router.put("/:id");x
+
+export default router;

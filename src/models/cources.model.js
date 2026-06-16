@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const courseSchema = new mongoose.Schema({
+const courceSchema = new mongoose.Schema({
   title: { type: String, required: true },
   tag: { type: String, required: true },
   tagColor: { type: String, required: true },
@@ -13,6 +13,6 @@ const courseSchema = new mongoose.Schema({
   img: { type: String, required: true },
 });
 
-const Course = mongoose.model("couse", courseSchema);
+const Course = mongoose.model("cource", courceSchema);
 
 export default Course;
