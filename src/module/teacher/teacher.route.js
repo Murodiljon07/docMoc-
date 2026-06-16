@@ -10,10 +10,12 @@ import {
   updateTeacherController,
 } from "./teacher.controller.js";
 
+import authMiddleware from "../../middleware/auth.middleware.js";
+
 router.get("/", getAllTeachersController);
 router.get("/:id", getTeacherIdController);
-router.post("/", createTeacherController);
-router.delete("/:id", deleteTeacherController);
-router.put("/:id", updateTeacherController);
+router.post("/", authMiddleware, createTeacherController);
+router.delete("/:id", authMiddleware, deleteTeacherController);
+router.put("/:id", authMiddleware, updateTeacherController);
 
 export default router;

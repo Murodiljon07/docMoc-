@@ -10,10 +10,12 @@ import {
   deleteCourceControler,
 } from "./course.controller.js";
 
+import authMiddleware from "../../middleware/auth.middleware.js";
+
 router.get("/", getAllCourceController);
 router.get("/:id", getCourceIdController);
-router.post("/", createCourceController);
-router.put("/:id", updateCourceController);
-router.delete("/:id", deleteCourceControler);
+router.post("/", authMiddleware, createCourceController);
+router.put("/:id", authMiddleware, updateCourceController);
+router.delete("/:id", authMiddleware, deleteCourceControler);
 
 export default router;
