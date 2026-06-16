@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
   res.send("Hello doc");
 });
 
-app.use("/ap/v1/auth", authRouter);
+app.use("/api/v1/auth", authRouter);
 
 export default app;

@@ -1,5 +1,8 @@
 import http from "http";
 import app from "./src/app.js";
+import connectDB from "./src/config/db.js";
+
+connectDB();
 
 const server = http.createServer(app);
 const PORT = 3000;

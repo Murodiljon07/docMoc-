@@ -6,4 +6,8 @@ export const loginService = async (email, password) => {
   return user;
 };
 
-export const registerService = async () => {};
+export const registerService = async (body) => {
+  const newUser = await User.create(body);
+
+  return newUser;
+};
