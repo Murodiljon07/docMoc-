@@ -22,3 +22,7 @@ export const updateCourceService = async (id, body) => {
   const updateCource = await Course.findByIdAndUpdate(id, body);
   return updateCource;
 };
+
+export const deleteCourceService = async (id) => {
+  return await Course.findByIdAndDelete(id);
+};

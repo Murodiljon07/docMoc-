@@ -3,6 +3,7 @@ import {
   newCourceService,
   getCourceIdService,
   updateCourceService,
+  deleteCourceService,
 } from "./course.service.js";
 
 export const getAllCourceController = async (req, res) => {
@@ -42,4 +43,12 @@ export const updateCourceController = async (req, res) => {
     msg: "Course updated",
     data: course,
   });
+};
+
+export const deleteCourceControler = async (req, res) => {
+  const { id } = req.params;
+
+  const data = await deleteCourceService(id);
+
+  res.json({ msg: "Success, cource deleted" });
 };
